@@ -2,7 +2,7 @@ from multiprocessing import context
 from django.shortcuts import render
 import learning_logs
 
-from learning_logs.models import Topic
+from learning_logs.models import Topic, Pizaeria
 
 
 # Create your views here.
@@ -22,3 +22,9 @@ def topic(request, topic_id):
     entries = topic.entry_set.order_by('-date_added')
     context = {'topic': topic, 'entries':entries}
     return render(request, 'topic.html',context)
+
+
+def pizaeria(request):
+    name = Pizaeria.objects.filter()
+    context ={'piza': name }
+    return render(request, "pizaeria.html", context)

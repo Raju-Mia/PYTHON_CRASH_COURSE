@@ -24,3 +24,12 @@ class Entry(models.Model):
         return f"{self.text[:50]}..."
     
     
+class Pizaeria(models.Model):
+    p_name = models.CharField(max_length=200)
+    p_size = models.CharField(max_length=200)
+    p_quantity = models.IntegerField()
+    p_details = models.TextField()
+
+
+    def __str__(self):
+        return self.p_name
