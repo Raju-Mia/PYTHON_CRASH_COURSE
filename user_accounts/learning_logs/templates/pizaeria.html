@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+This is piza page.<br><br>
+
+{% for i in piza %}
+Name : {{ i.p_name }}<br>
+size : {{ i.p_size }}<br>
+Quantity : {{ i.p_quantity }}<br>
+Details : {{ i.p_details }}<br><br>
+{% endfor %}
+{% endblock content %}
