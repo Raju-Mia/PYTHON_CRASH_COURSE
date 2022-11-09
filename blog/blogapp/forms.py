@@ -1,7 +1,7 @@
 from django import forms
 from .models import BlogPost
 
-class EditBlogform(forms.ModelForm):
+class BlogPostform(forms.ModelForm):
     class Meta:
         model = BlogPost
         fields = "__all__"
