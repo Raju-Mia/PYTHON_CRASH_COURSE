@@ -9,5 +9,7 @@ Name : {{ i.p_name }}<br>
 size : {{ i.p_size }}<br>
 Quantity : {{ i.p_quantity }}<br>
 Details : {{ i.p_details }}<br><br>
+{% empty %}
+            <li>No Piza has been added yet.</li>
 {% endfor %}
 {% endblock content %}

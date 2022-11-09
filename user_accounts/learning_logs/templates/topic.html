@@ -7,7 +7,6 @@
 <p>Entries: </P>
 
 
-<p>Add New Entry</P>
 <p><a href = "{% url 'learning_logs:new_entry' topic.id %}">Add New Entry: {{ topic}}</a></p> 
 
 
@@ -16,6 +15,10 @@
         <li>
             <p>{{ entry.date_added|date:'M d, Y H:i' }}</p>
             <p>{{ entry.text|linebreaks }}</p>
+
+            <!--edit button link add-->
+            <p><a href = "{% url 'learning_logs:edit_entry' entry.id %}">Edit Entry {{ topic}}</a></p> 
+
         </li><br>
         {% empty %}
             <li>No topics has benn added yet.</li>

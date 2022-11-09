@@ -2,7 +2,7 @@ from multiprocessing import context
 from django.shortcuts import render, redirect
 import learning_logs
 
-from learning_logs.models import Topic, Pizaeria
+from learning_logs.models import Topic, Pizaeria, Entry
 from .forms import TopicForm, EntryForm
 
 # Create your views here.
@@ -63,3 +63,23 @@ def new_entry(request, topic_id):
     context = {'topic': topic, 'form': form}
 
     return render(request, "new_entry.html", context)
+
+
+
+#edit_entry funtion for edit the entry details.
+def edit_entry(request, entry_id):
+    entry = Entry.objects.get(id=entry_id)
+    topic = entry.topic #topic means Topic model topic field name.
+
+    if request.method != 'POST':
+        form = EntryForm(instance=entry) #Entryform is forms.py class
+    
+    else:
+        form = EntryForm(instance=entry, data = request.POST) #Entryform is forms.py class
+        if form.is_valid():
+            form.save()
+            return redirect('learning_logs:topic', topic_id=topic.id)
+
+    context = {'entry': entry, 'topic':topic, 'form':form}
+    return render(request, 'edit_entry.html', context)
+    

@@ -3,8 +3,9 @@
 
 {% block content %}
 
+<!--this is link line of new_topic add, came form forms.py. funtion name is: TopicForm -->
+<p><a href = "{% url 'learning_logs:new_topic' %}">Add New Topic: {{ topic}}</a></p>
 
-<p><a href = "{% url 'learning_logs:new_topic' %}">Add New Topic: {{ topic}}</a></p> 
 <p>Topic:</P>
     <ul>
         {% for topic in topics %}
