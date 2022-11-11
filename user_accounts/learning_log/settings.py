@@ -40,6 +40,11 @@ INSTALLED_APPS = [
 
     #my apps
     'learning_logs',
+
+    #for default django user accounts
+    'users',
+
+    
 ]
 
 MIDDLEWARE = [

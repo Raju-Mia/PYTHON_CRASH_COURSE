@@ -5,7 +5,17 @@
   <li><a href="{% url 'learning_logs:pizaeria' %}">Pizaeria</a></li>
   <li><a href="{% url 'learning_logs:new_topic' %}">New Topic Add</a></li>
   {% comment %} <li><a href="{% url 'learning_logs:topic' topic.id %}">Topic Name</a></li> {% endcomment %}
-  
+
+<!--Link to the login page-->
+{% if user.is_authenticated %}
+    <br><p>Hello, {{ user.username }} </p>
+{% else %}
+    <li><a href="{% url 'users:login' %}">Log In</a></li>
+{% endif %}
+
+
+
+
 </ul>
 
 

@@ -21,5 +21,10 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    #learning_logs app for model,views,database etc basic concept.
     path('', include('learning_logs.urls')),
+
+    #users app for user accounts.
+    path('users/', include('users.urls')),
 ]

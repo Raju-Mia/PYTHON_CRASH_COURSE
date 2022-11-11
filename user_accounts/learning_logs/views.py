@@ -69,7 +69,7 @@ def new_entry(request, topic_id):
 #edit_entry funtion for edit the entry details.
 def edit_entry(request, entry_id):
     entry = Entry.objects.get(id=entry_id)
-    topic = entry.topic #topic means Topic model topic field name.
+    topic_filed = entry.topic #topic means Topic model topic field name.
 
     if request.method != 'POST':
         form = EntryForm(instance=entry) #Entryform is forms.py class
@@ -80,6 +80,6 @@ def edit_entry(request, entry_id):
             form.save()
             return redirect('learning_logs:topic', topic_id=topic.id)
 
-    context = {'entry': entry, 'topic':topic, 'form':form}
+    context = {'entry': entry, 'topic':topic_filed, 'form':form}
     return render(request, 'edit_entry.html', context)
     
