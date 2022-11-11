@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -43,8 +44,9 @@ INSTALLED_APPS = [
 
     #for default django user accounts
     'users',
-
     
+
+
 ]
 
 MIDDLEWARE = [
@@ -129,3 +131,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#you can sett logout redirect url
+LOGOUT_REDIRECT_URL = 'users:login'
