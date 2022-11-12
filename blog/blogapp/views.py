@@ -30,7 +30,7 @@ def blogpost(request):
 def editblog(request, blog_id):
 
     blog = BlogPost.objects.get(id=blog_id)
-    title_name = blog.title
+    title_name = blog.title #normal variable for bolg funtion title value
 
     if request.method != "POST":
         form = BlogPostform(instance=blog)

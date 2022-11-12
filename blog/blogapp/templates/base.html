@@ -24,6 +24,16 @@ and is wrapped around the whole page content, except for the footer in this exam
   <p><a href="{% url 'blogapp:home' %}">Home</a></p> <!--home is a url name of urls.py-->
   <p><a href="{% url 'blogapp:blogpost' %}">Add New Blog</a></p> <!--logpost is a url name of urls.py-->
 
+  <!--for login page-->
+  {% if user.is_authenticated %}
+  Hello, {{ user.username }}
+  <p><a href="{% url 'logout' %}">Log Out</a></p>
+
+  {% else %}
+  <p><a href="{% url 'register' %}">Register</a></p>
+  <p><a href="{% url 'login' %}">Log In</a></p>
+  {% endif %}
+
 
   
 
