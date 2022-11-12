@@ -1,32 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
 
-<ul>
-  <li><a href="{% url 'learning_logs:index' %}">Home</a></li>
-  <li><a href="{% url 'learning_logs:topics' %}">Topics</a></li>
-  <li><a href="{% url 'learning_logs:pizaeria' %}">Pizaeria</a></li>
-  <li><a href="{% url 'learning_logs:new_topic' %}">New Topic Add</a></li>
-  {% comment %} <li><a href="{% url 'learning_logs:topic' topic.id %}">Topic Name</a></li> {% endcomment %}
+    <!--bootstrap link add-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <ul>
+      <li><a href="{% url 'learning_logs:index' %}">Home</a></li>
+      <li><a href="{% url 'learning_logs:topics' %}">Topics</a></li>
+      <li><a href="{% url 'learning_logs:pizaeria' %}">Pizaeria</a></li>
+      <li><a href="{% url 'learning_logs:new_topic' %}">New Topic Add</a></li>
+      {% comment %}
+      <li><a href="{% url 'learning_logs:topic' topic.id %}">Topic Name</a></li>
+      {% endcomment %}
 
-<!--Link to the login page-->
-{% if user.is_authenticated %}
-    Hello, {{ user.username }}.
+      <!--Link to the login page-->
+      {% if user.is_authenticated %} Hello, {{ user.username }}.
 
-    <!--Link to the logout page-->
-    <!--unfortunatly not redirect by logged_out.html page . it's going to admin logout page.-->
-    <!--that's why redirect in setting.py by LOGOUT_REDIRECT_URL = 'users:login' -->
-    <a href="{% url 'users:logout' %}">Log Out</a>
+      <!--Link to the logout page-->
+      <!--unfortunatly not redirect by logged_out.html page . it's going to admin logout page.-->
+      <!--that's why redirect in setting.py by LOGOUT_REDIRECT_URL = 'users:login' -->
+      <a href="{% url 'users:logout' %}">Log Out</a>
 
-{% else %}
-    <li><a href="{% url 'users:login' %}">Log In</a></li>
-{% endif %}
+      {% else %}
+      <a href="{% url 'users:login' %}">Log in</a><br>
+      
+      <!--Register Home page Link-->
+      <a href="{% url 'users:register' %}">Register</a>
+      {% endif %}
+    </ul>
 
+    {% block content %} {% endblock content %}
 
-
-
-
-</ul>
-
-
-{% block content %}
-
-{% endblock content %}
-
+    <script src="" async defer></script>
+  </body>
+</html>

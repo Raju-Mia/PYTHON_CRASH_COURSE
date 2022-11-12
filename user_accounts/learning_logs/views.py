@@ -1,6 +1,6 @@
 from multiprocessing import context
 from django.shortcuts import render, redirect
-import learning_logs
+from django.contrib.auth.decorators import login_required
 
 from learning_logs.models import Topic, Pizaeria, Entry
 from .forms import TopicForm, EntryForm
@@ -10,7 +10,7 @@ from .forms import TopicForm, EntryForm
 def index(request):
     return render(request, 'index.html')
 
-
+# @login_required(login_url='login') #no login url in views.py
 def topics(request):
     topics = Topic.objects.order_by('date_added')
     context = {'topics': topics}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="post" action="{% url 'users:register' %}"> <!--url 'users:register /// this means default process of users login view-->
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type='submit'>Register</button>
+
+    <!--this is redirect the user after they are login-->
+    <input type="hidden" name="next" value="{% url 'learning_logs:index' %}" >
+    
+</form> 
+{% endblock content %}
