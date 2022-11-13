@@ -10,7 +10,7 @@ from .forms import TopicForm, EntryForm
 def index(request):
     return render(request, 'index.html')
 
-# @login_required(login_url='login') #no login url in views.py
+@login_required() #login Require Must for asscess the topics url
 def topics(request):
     topics = Topic.objects.order_by('date_added')
     context = {'topics': topics}
@@ -30,6 +30,7 @@ def pizaeria(request):
     return render(request, "pizaeria.html", context)
 
 
+@login_required() #login Require Must for add the new_topic.
 def new_topic(request):
 
     if request.method != 'POST':

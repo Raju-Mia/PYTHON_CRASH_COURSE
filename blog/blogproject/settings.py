@@ -128,3 +128,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #for logout default redirect page-
 LOGOUT_REDIRECT_URL = 'blogapp:home'
+
+
+
+#My setting
+#THis is for login_required decorator.
+#LOGIN_URL = 'users:login' this line we can used, when we urls.py declar a variable # app_name = 'users'
+LOGIN_URL = 'login'

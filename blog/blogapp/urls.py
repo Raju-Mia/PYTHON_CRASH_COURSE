@@ -9,6 +9,6 @@ urlpatterns = [
 
     path('home/', views.blog, name='home'),
     path('blogpost/', views.blogpost, name='blogpost'),
-    path('editblog/<int:blog_id>', views.editblog, name = 'editblog'),
+    path('editblog/<int:blog_id>/', views.editblog, name = 'editblog'),
 
 ]

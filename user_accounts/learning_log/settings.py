@@ -134,3 +134,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #you can sett logout redirect url
 LOGOUT_REDIRECT_URL = 'users:login' #'/' that means redirect will be home page.
+
+
+#My setting
+#THis is for login_required decorator.
+LOGIN_URL = 'users:login'

@@ -2,15 +2,21 @@ from django.shortcuts import render, redirect, HttpResponse
 # Create your views here.
 from .models import BlogPost
 
-def blog(request):
+#forms import (for add the new blog)
+from .forms import BlogPostform
 
+#login Require import.
+from django.contrib.auth.decorators import login_required
+
+
+
+def blog(request):
     blogposts = BlogPost.objects.filter()
     context = {"blogpost": blogposts}
     return render(request, 'blog.html', context)
 
 
-#forms import (for add the new blog)
-from .forms import BlogPostform
+@login_required()
 def blogpost(request):
     if request.method != "POST":
         form = BlogPostform()
@@ -26,7 +32,7 @@ def blogpost(request):
     return render(request, 'blogpost.html', context)
 
 
-
+@login_required()#login Require Must for the function.
 def editblog(request, blog_id):
 
     blog = BlogPost.objects.get(id=blog_id)
