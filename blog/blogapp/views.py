@@ -12,6 +12,9 @@ from django.contrib.auth.decorators import login_required
 
 def blog(request):
     blogposts = BlogPost.objects.filter()
+
+    #next work here.
+    
     context = {"blogpost": blogposts}
     return render(request, 'blog.html', context)
 
